@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".LoginScreen"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/pass"
+        android:layout_marginTop="157dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+        android:drawablePadding="12dp"
+        android:ems="16"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="238dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="12dp"
+        android:ems="16"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/login_button"
+        android:text="LOGIN"
+        android:textColor="#d9406e"
+        android:textSize="20sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="108dp"
+        android:layout_height="81dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="ACCOUNT SETTINGS"
+        android:id="@+id/ac_settings"/>
+    <item
+        android:title="NEW ACCOUNT"
+        android:id="@+id/register"/>
+    <item
+        android:id="@+id/logout"
+        android:title="LOG OUT" />
+</menu>
