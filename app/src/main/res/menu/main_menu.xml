@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:title="ACCOUNT SETTINGS"
         android:id="@+id/ac_settings"/>
+    <item
+        android:id="@+id/all_users"
+        android:title="ALL USERS" />
     <item
         android:title="NEW ACCOUNT"
         android:id="@+id/register"/>

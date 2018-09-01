@@ -88,6 +88,14 @@ public class Main2Activity extends AppCompatActivity {
             startActivity(account_setting);
 
         }
+        else if(item.getItemId() == R.id.all_users){
+
+
+
+            Intent AllUsers = new Intent(Main2Activity.this, UsersActivity.class);
+            startActivity(AllUsers);
+
+        }
         return true;
     }
 
