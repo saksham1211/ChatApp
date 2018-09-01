@@ -30,7 +30,7 @@ public class StatusActivity extends AppCompatActivity {
     private FirebaseUser mCurrentUser;
 
 
-    //Progress
+
     private ProgressDialog mProgress;
 
     @Override
@@ -49,7 +49,6 @@ public class StatusActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Account Status");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         String status_value = getIntent().getStringExtra("status_value");
 
         mStatus =  findViewById(R.id.status_input);
@@ -61,7 +60,6 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Progress
                 mProgress = new ProgressDialog(StatusActivity.this);
                 mProgress.setTitle("Saving Changes");
                 mProgress.setMessage("Please wait while we save the changes");
