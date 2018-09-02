@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 
@@ -69,57 +70,50 @@ public class Register extends AppCompatActivity {
                 mRegProgress.setCanceledOnTouchOutside(false);
                 mRegProgress.show();
 
-                createAccount();
+                createAccount(dispname, Email, pass);
 
 
             }
         });
     }
-    public  void activity() {
-        Intent intent = new Intent(Register.this, Main2Activity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    private void createAccount(final String dispname, String email, String password) {
 
-        startActivity(intent);
-        finish();
-    }
-    private void createAccount() {
-        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-                            String  dispname = name.getText().toString();
-                            String  Email= email.getText().toString();
-                            String  pass = password.getText().toString();
 
                             FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
                             String uid = current_user.getUid();
 
                             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
 
-                            HashMap<String ,String> userMap = new HashMap<>();
-                            userMap.put("name" ,dispname);
-                            userMap.put("status","Hi i am using chatapp.");
-                            userMap.put("Image","default");
-                            userMap.put("thumb_image","default");
+                            String device_token = FirebaseInstanceId.getInstance().getToken();
+
+                            HashMap<String, String> userMap = new HashMap<>();
+                            userMap.put("name", dispname);
+                            userMap.put("status", "Hi there I'm using ChatApp.");
+                            userMap.put("image", "default");
+                            userMap.put("thumb_image", "default");
+                            userMap.put("device_token", device_token);
 
                             mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if(task.isSuccessful()){
+
                                         mRegProgress.dismiss();
 
-                                        activity();
+                                        Intent mainIntent = new Intent(Register.this, Main2Activity.class);
+                                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(mainIntent);
+                                        finish();
 
-                                        Toast.makeText(Register.this,"ACCOUNT CREATED",Toast.LENGTH_LONG).show();
                                     }
 
                                 }
                             });
-
-
 
 
                         }
