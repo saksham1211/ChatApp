@@ -101,14 +101,14 @@ public class SettingsActivity extends AppCompatActivity {
                 String name = dataSnapshot.child("name").getValue().toString();
                 final String image = dataSnapshot.child("image").getValue().toString();
                 String status = dataSnapshot.child("status").getValue().toString();
-               String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
+                String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
 
                 mName.setText(name);
                 mStatus.setText(status);
 
-                Picasso.with(SettingsActivity.this).load(image).networkPolicy(NetworkPolicy.NO_CACHE).placeholder(R.drawable.default_avatar).into(mDisplayImage);
+                Picasso.with(SettingsActivity.this).load(image).placeholder(R.drawable.default_avatar).into(mDisplayImage);
 
-                /*if(!image.equals("default")) {
+                if(!image.equals("default")) {
 
 
                     Picasso.with(SettingsActivity.this).load(image).networkPolicy(NetworkPolicy.OFFLINE)
@@ -126,7 +126,7 @@ public class SettingsActivity extends AppCompatActivity {
                         }
                     });
 
-                }*/
+                }
 
 
             }

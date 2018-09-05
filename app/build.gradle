@@ -38,6 +38,7 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.firebaseui:firebase-ui-database:1.2.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
