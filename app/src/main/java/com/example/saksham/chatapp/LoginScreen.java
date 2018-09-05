@@ -61,16 +61,13 @@ public class LoginScreen extends Activity {
 
                         } else {
 
-
                             Toast.makeText(LoginScreen.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
 
-
                     }
                 });
     }
-
 
 }

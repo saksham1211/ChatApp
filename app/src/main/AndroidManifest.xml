@@ -12,7 +12,8 @@
         android:label="CHAT APP"
         android:roundIcon="@drawable/ic_mood_black_24dp"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".chatActivity">
         <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
