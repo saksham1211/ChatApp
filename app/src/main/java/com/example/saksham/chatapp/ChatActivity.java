@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.google.firebase.database.FirebaseDatabase;
 
-public class chatActivity extends Application {
+public class ChatActivity extends Application {
 
     @Override
     public void onCreate(){
