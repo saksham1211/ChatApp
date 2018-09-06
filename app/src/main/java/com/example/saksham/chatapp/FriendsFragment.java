@@ -85,7 +85,6 @@ public class FriendsFragment extends Fragment {
                 FriendsViewHolder.class,
                 mFriendsDatabase
 
-
         ) {
             @Override
             protected void populateViewHolder(final FriendsViewHolder friendsViewHolder, Friends friends, int i) {

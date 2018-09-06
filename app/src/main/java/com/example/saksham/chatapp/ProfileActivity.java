@@ -61,12 +61,12 @@ public class ProfileActivity extends AppCompatActivity {
         mNotificationDatabase = FirebaseDatabase.getInstance().getReference().child("notifications");
         mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
 
-        mProfileImage = (ImageView) findViewById(R.id.profile_image);
-        mProfileName = (TextView) findViewById(R.id.profile_displayName);
-        mProfileStatus = (TextView) findViewById(R.id.profile_status);
-        mProfileFriendsCount = (TextView) findViewById(R.id.profile_totalFriends);
-        mProfileSendReqBtn = (Button) findViewById(R.id.profile_send_req_btn);
-        mDeclineBtn = (Button) findViewById(R.id.profile_decline_btn);
+        mProfileImage =  findViewById(R.id.profile_image);
+        mProfileName =  findViewById(R.id.profile_displayName);
+        mProfileStatus = findViewById(R.id.profile_status);
+        mProfileFriendsCount =  findViewById(R.id.profile_totalFriends);
+        mProfileSendReqBtn =  findViewById(R.id.profile_send_req_btn);
+        mDeclineBtn = findViewById(R.id.profile_decline_btn);
 
 
         mCurrent_state = "not_friends";

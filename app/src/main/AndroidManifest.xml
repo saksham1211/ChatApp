@@ -13,7 +13,16 @@
         android:roundIcon="@drawable/ic_mood_black_24dp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".chatActivity">
+        android:name=".ChatApp">
+
+        <service
+            android:name=".FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+
         <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,8 +46,25 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".UsersActivity"
-            android:parentActivityName=".Main2Activity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+            android:parentActivityName=".Main2Activity">
+
+        </activity>
+        <activity android:name=".ProfileActivity">
+            <intent-filter>
+                <action android:name="com.example.saksham.chatapp_TARGET_NOTIFICATION">
+
+                </action>
+                <category android:name="android.intent.category.DEFAULT">
+
+                </category>
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".ChatActivity"
+            android:parentActivityName=".Main2Activity">
+
+        </activity>
     </application>
 
 </manifest>
