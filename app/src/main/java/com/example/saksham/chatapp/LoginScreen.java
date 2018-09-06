@@ -11,10 +11,14 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class LoginScreen extends Activity {
 
@@ -23,6 +27,7 @@ public class LoginScreen extends Activity {
     private FirebaseAuth mAuth;
     Button button;
     ProgressBar progressBar;
+    private DatabaseReference mUserDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class LoginScreen extends Activity {
             @Override
             public void onClick(View view) {
 
-
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
                 signin();
                 progressBar.setVisibility(View.VISIBLE);
             }
@@ -52,6 +57,18 @@ public class LoginScreen extends Activity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            String current_user_id =mAuth.getCurrentUser().getUid();
+                            String deviceToken = FirebaseInstanceId.getInstance().getToken();
+
+                            mUserDatabase.child(current_user_id).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+
+                                }
+                            });
+
+
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginScreen.this, "LOGGED IN",
                                     Toast.LENGTH_SHORT).show();
