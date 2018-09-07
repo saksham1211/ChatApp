@@ -75,14 +75,10 @@ public class LoginScreen extends Activity {
                             Intent intent = new Intent(LoginScreen.this,Main2Activity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-
                         } else {
-
                             Toast.makeText(LoginScreen.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
                     }
                 });
     }
