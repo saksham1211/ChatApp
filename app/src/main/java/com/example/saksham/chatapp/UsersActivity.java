@@ -4,22 +4,17 @@ package com.example.saksham.chatapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import com.squareup.picasso.Picasso;
-
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -126,7 +121,7 @@ public class UsersActivity extends AppCompatActivity {
 
             CircleImageView userImageView =  mView.findViewById(R.id.user_single_image);
 
-            Picasso.with(ctx).load(thumb_image).placeholder(R.drawable.default_avatar).into(userImageView);
+            Picasso.get().load(thumb_image).placeholder(R.drawable.default_avatar).into(userImageView);
 
         }
 
